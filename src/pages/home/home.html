@@ -1,14 +1,20 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Barcode Scanner</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-grid>
+    <ion-item>
+      <button ion-button clear block (tap)="scan()">Scan Barcode</button>
+    </ion-item>
+    <ion-item *ngIf="results !== null" (swipeLeft)="clearResults()">
+      <p>{{results.text}}</p>
+      <p>{{results.format}}</p>
+    </ion-item>
+  </ion-grid>
 </ion-content>
